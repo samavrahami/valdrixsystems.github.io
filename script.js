@@ -148,19 +148,3 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.service-card').forEach(card => observer.observe(card));
 
 
-// --- Contact Form → mailto ---
-document.getElementById('contact-form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const data = new FormData(e.target);
-  const name    = data.get('name').trim();
-  const email   = data.get('email').trim();
-  const message = data.get('message').trim();
-
-  const subject = encodeURIComponent(`Consulting Inquiry from ${name}`);
-  const body    = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-  );
-
-  window.location.href =
-    `mailto:samuel@valdrixsystems.com?subject=${subject}&body=${body}`;
-});
